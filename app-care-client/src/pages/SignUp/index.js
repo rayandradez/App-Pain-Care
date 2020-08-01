@@ -11,7 +11,10 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import Container from '@material-ui/core/Container';
+
+// import doc from '../img/doc.jpg';
 
 function Copyright() {
   return (
@@ -27,8 +30,24 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '85vh',
+    padding: '3% 3%',
+    marginTop: '2%',
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  image: {
+    backgroundImage: 'url(https://image.freepik.com/free-vector/medicine-concept-illustration_114360-2802.jpg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  },
   paper: {
-    marginTop: theme.spacing(8),
+    margin: theme.spacing(4, 9),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -46,12 +65,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignInSide() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Grid container component="main" className={classes.root}>
+    <CssBaseline />
+    <Grid item xs={false} sm={4} md={5} className={classes.image} />
+      <Grid item xs={12} sm={6} md={5} component={Paper} elevation={6} square>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -132,10 +153,12 @@ export default function SignUp() {
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
+  
+      <Box mt={6}>
         <Copyright />
       </Box>
-    </Container>
-  );
+      </Grid>
+      </Grid>  
+      );
 }
 

@@ -3,13 +3,14 @@ import React from 'react';
 import './App.css';
 import Routes from './routes';
 
-
 function App() {
   return (
-    <div className="container">
+    <div className="App">
+    <div className="login">
+
         <Routes />
-    </div>
-    
+        </div>
+        </div> 
   );
 }
 

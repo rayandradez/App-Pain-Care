@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
 .App {
-  text-align: center;
-}
+  /* text-align: center; */
+} 
 
 .App-logo {
   height: 40vmin;
@@ -11,6 +13,11 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.teste{
+  /* background: #5C81F6; */
+  background-image: url("teste.jpg");
 }
 
 .App-header {
@@ -36,3 +43,5 @@
     transform: rotate(360deg);
   }
 }
+
+
