@@ -15,11 +15,6 @@
   }
 }
 
-.teste{
-  /* background: #5C81F6; */
-  background-image: url("teste.jpg");
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,6 +29,12 @@
 .App-link {
   color: #61dafb;
 }
+
+/* .teste{
+  background: #5C81F6;
+  background-image: url("teste.jpg");
+} */
+
 
 @keyframes App-logo-spin {
   from {

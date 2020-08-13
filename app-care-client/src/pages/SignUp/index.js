@@ -1,164 +1,75 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Container from '@material-ui/core/Container';
+import {Link} from 'react-router-dom';
 
-// import doc from '../img/doc.jpg';
+import logoImg from '../../assets/images/logoAppWhite.svg';
+import backIcon from '../../assets/images/icons/back.svg';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+import PageHeader from '../../components/PageHeader';
+
+import './styles.css';
+import CuidadorList from '../../components/CuidadorList';
+
+function SignUp() {
+    return (
+        <div id="page-cadastro" className="container">
+            {/* <PageHeader/> */}
+            <header className="page-header">
+              <div className="top-bar-container">
+                <Link to= "/"> 
+                <img src={backIcon} alt="Voltar" />
+                </Link>
+                <img src={logoImg} alt="Cuidador" />      
+              </div>
+              <div className ="header-content">
+                <strong>Cadastro</strong>
+              </div>
+            </header> 
+            <main> 
+               
+            <fieldset>
+                <div className="input-block">
+                  <label htmlFor="id">ID/CRM</label>
+                  <input type="text" id="text" />  
+                  </div>
+
+                  <div className="input-block">
+                  <label htmlFor="name">Nome Completo*</label>
+                  <input type="text" id="text" />  
+                  </div>
+
+                  <div className="input-block">
+                  <label htmlFor="date">Data de Nascimento*</label>
+                  <input type="date" id="date" />
+                  </div>
+
+                  <div className="input-block">
+                  <label htmlFor="email">Email*</label>
+                  <input type="email" id="email" />
+                  </div>
+
+                  <div className="input-block">
+                  <label htmlFor="password">Senha*</label>
+                  <input type="password" id="password" />
+                  </div>
+
+                  <div className="input-block">
+                  <label htmlFor="password">Confirmar senha*</label>
+                  <input type="password" id="password" />
+                  </div>
+                </fieldset>  
+                <div className="buttons-container">
+                <Link to="/" className="botao">
+                    Cadastrar
+                </Link>
+                </div>             
+                  
+                  <span className="total-connections">
+                Produzido por: E-brains Team
+                </span>    
+            </main>
+               
+        </div>
+    )
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '85vh',
-    padding: '3% 3%',
-    marginTop: '2%',
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  image: {
-    backgroundImage: 'url(https://image.freepik.com/free-vector/medicine-concept-illustration_114360-2802.jpg)',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(4, 9),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
-export default function SignInSide() {
-  const classes = useStyles();
-
-  return (
-    <Grid container component="main" className={classes.root}>
-    <CssBaseline />
-    <Grid item xs={false} sm={4} md={5} className={classes.image} />
-      <Grid item xs={12} sm={6} md={5} component={Paper} elevation={6} square>
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-  
-      <Box mt={6}>
-        <Copyright />
-      </Box>
-      </Grid>
-      </Grid>  
-      );
-}
-
+export default SignUp;

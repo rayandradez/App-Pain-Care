@@ -2,18 +2,24 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Login from './pages/Login/index';
-import SignUp from './pages/SignUp/index';
+import Login from './pages/Newlogin/index';
 import Dashboard from './pages/Dashboard';
+import AppMenu from './pages/AppMenu';
+import Avaliacao from './pages/Avaliacao';
+import Cuidadores from './pages/Cuidadores';
+import SignUp from './pages/SignUp';
 
 export default function Routes() {
   return (
     <BrowserRouter>
-      <Switch>
+      {/* <Switch> */}
         <Route path="/" exact component={Login} />
+        <Route path="/AppMenu" component={AppMenu} />
         <Route path="/Dashboard" component={Dashboard} />
-        <Route path="/SignUp" component={SignUp} />
-      </Switch>
+        <Route path="/Avaliacao" component={Avaliacao} />
+        <Route path="/Cuidadores" component={Cuidadores} />
+        <Route path="/Cadastro" component = {SignUp} />
+      {/* </Switch> */}
     </BrowserRouter>
   );
 }
