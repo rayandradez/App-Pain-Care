@@ -8,6 +8,7 @@ import AppMenu from './pages/AppMenu';
 import Avaliacao from './pages/Avaliacao';
 import Cuidadores from './pages/Cuidadores';
 import SignUp from './pages/SignUp';
+import Metas from './pages/Metas';
 
 export default function Routes() {
   return (
@@ -19,6 +20,8 @@ export default function Routes() {
         <Route path="/Avaliacao" component={Avaliacao} />
         <Route path="/Cuidadores" component={Cuidadores} />
         <Route path="/Cadastro" component = {SignUp} />
+        <Route path="/metas" component = {Metas}/>
+
       {/* </Switch> */}
     </BrowserRouter>
   );

@@ -24,7 +24,7 @@ function AppMenu() {
                         </Link>
                         </div>
                         <div className="buttons-container">
-                        <Link to="/dashboard" className="study">
+                        <Link to="/metas" className="study">
                             Minhas Metas
                         </Link>
                         </div>

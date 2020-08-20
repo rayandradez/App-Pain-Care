@@ -23,7 +23,6 @@ return (
             
             <main>
                 <fieldset>
-                
                 <div className="input-block">
                   <label htmlFor="email">Email</label>
                   <input type="email" id="email" />  
@@ -48,9 +47,9 @@ return (
                
                 <span className="total-connections">
                 Produzido por: E-brains Team
-                </span>      
+                </span>
+                </div>      
 
-        </div>
     </div>
         
     );
