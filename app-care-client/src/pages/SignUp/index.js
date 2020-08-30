@@ -15,8 +15,8 @@ function SignUp() {
   const history = useHistory();
 
 
-  const [name, setName] = useState('');
-  const [sobrenome, setSobrenome] = useState('');
+  const [firstName, setfirstName] = useState('');
+  const [lastName, setlastName] = useState('');
   const [nascimento, setNascimento] = useState('');
   const [cpf, setCPF] = useState('');
   const [codigo, setCodigo] = useState('');
@@ -27,13 +27,13 @@ function SignUp() {
   function handleCreateForm(e) {
     e.preventDefault()
 
-    api.post('classes', {
-      name,
-      sobrenome,
-      nascimento,
+    api.post('api/patient/register', {
+      firstName,
+      lastName,
+      /*nascimento,
       cpf: Number(cpf),
       codigo,
-      papel,
+      papel,*/
       email,
       password
     }).then(() => {
@@ -48,8 +48,8 @@ function SignUp() {
     })
 
     console.log({
-      name,
-      sobrenome,
+      firstName,
+      lastName,
       nascimento,
       cpf,
       codigo,
@@ -121,8 +121,8 @@ function SignUp() {
               <input
                 type="text"
                 id="name"
-                value={name}
-                onChange={(e) => { setName(e.target.value) }}
+                value={firstName}
+                onChange={(e) => { setfirstName(e.target.value) }}
               />
             </div>
 
@@ -131,8 +131,8 @@ function SignUp() {
               <input
                 type="text"
                 id="surname"
-                value={sobrenome}
-                onChange={(e) => { setSobrenome(e.target.value) }} />
+                value={lastName}
+                onChange={(e) => { setlastName(e.target.value) }} />
             </div>
 
             <div className="input-block">
