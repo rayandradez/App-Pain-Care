@@ -1,10 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/images/logoAppWhite.svg';
 import backIcon from '../../assets/images/icons/back.svg';
 
-import PageHeader from '../../components/PageHeader';
 
 import './styles.css';
 import CuidadorList from '../../components/CuidadorList';
@@ -51,65 +50,64 @@ export default function Cuidadores() {
   }));
   const classes = useStyles();
 
+  function addNewCuidador() {
+    //Gerar um novo card de cuidadores.
+  }
 
-    
-    return (
-        <div id="page-cuidadores" className="container">
+  return (
+    <div id="page-cuidadores" className="container">
 
-            {/* <PageHeader/> */}
-            <header className="page-header">
-              <div className="top-bar-container">
-                <Link to= "/"> 
-                <img src={backIcon} alt="Voltar" />
-                </Link>
-                <img src={logoImg} alt="Cuidador" />      
-              </div>
-
-              <div className ="header-content">
-                <strong>Cuidadores </strong>
-              </div>
-            </header> 
-
-            
-            <main> 
-              
-            <Button className={classes.botao} align="center" variant="outlined" color="primary" onClick={handleClickOpen}>
-            Inserir Código
-          </Button>
-          <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-            <DialogTitle className={classes.titulo} id="form-dialog-title"><b>Inserir Código</b></DialogTitle>
-            <DialogContent >
-              <DialogContentText className={classes.texto}>
-              <strong>Adicionar código para vincular sua conta com a do profissional de saúde.</strong> <br/> OBS.: Para conseguir o código, entre em contato com o seu médico.
-              </DialogContentText>
-              <TextField
-                autoFocus
-                margin="dense"
-                id="código"
-                label="Código"
-                type="text"
-                fullWidth
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose} color="primary">
-                Voltar
-              </Button>
-              <Button onClick={handleClose} color="primary">
-                Adicionar
-              </Button>
-            </DialogActions>
-          </Dialog>        
-                  <CuidadorList/>
-                  <CuidadorList/>
-                  <CuidadorList/>
-                  <CuidadorList/>
-                  <span className="total-connections">
-                Produzido por: E-brains Team
-                </span>    
-            </main>
-               
+      <header className="page-header">
+        <div className="top-bar-container">
+          <Link to="/">
+            <img src={backIcon} alt="Voltar" />
+          </Link>
+          <img src={logoImg} alt="Cuidador" />
         </div>
-    );
+
+        <div className="header-content">
+          <strong>Cuidadores </strong>
+        </div>
+      </header>
+
+
+      <main>
+
+        <Button className={classes.botao} align="center" variant="outlined" color="primary" onClick={handleClickOpen}>
+          Inserir Código
+          </Button>
+        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+          <DialogTitle className={classes.titulo} id="form-dialog-title"><b>Inserir Código</b></DialogTitle>
+          <DialogContent >
+            <DialogContentText className={classes.texto}>
+              <strong>Adicionar código para vincular sua conta com a do profissional de saúde.</strong> <br /> OBS.: Para conseguir o código, entre em contato com o seu médico.
+              </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="código"
+              label="Código"
+              type="text"
+              fullWidth
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              Voltar
+              </Button>
+            <Button onClick={addNewCuidador} color="primary">
+              Adicionar
+              </Button>
+          </DialogActions>
+        </Dialog>
+        <CuidadorList />
+
+        <span className="total-connections">
+          Produzido por: E-brains Team
+                </span>
+      </main>
+
+    </div>
+  );
 }
 

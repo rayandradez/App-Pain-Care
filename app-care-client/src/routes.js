@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Login from './pages/Newlogin/index';
 import Dashboard from './pages/Dashboard';
@@ -13,7 +13,6 @@ import Metas from './pages/Metas';
 export default function Routes() {
   return (
     <BrowserRouter>
-      {/* <Switch> */}
         <Route path="/" exact component={Login} />
         <Route path="/AppMenu" component={AppMenu} />
         <Route path="/Dashboard" component={Dashboard} />
@@ -21,8 +20,6 @@ export default function Routes() {
         <Route path="/Cuidadores" component={Cuidadores} />
         <Route path="/Cadastro" component = {SignUp} />
         <Route path="/metas" component = {Metas}/>
-
-      {/* </Switch> */}
     </BrowserRouter>
   );
 }

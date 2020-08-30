@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import PageHeader from '../../components/PageHeader';
 
 import './styles.css';
-import CuidadorList from '../../components/CuidadorList';
 
 function AppMenu() {
     return (

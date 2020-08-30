@@ -1,19 +1,68 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+
 
 import logoImg from '../../assets/images/logoAppWhite.svg';
 import backIcon from '../../assets/images/icons/back.svg';
 
-import PageHeader from '../../components/PageHeader';
+import api from '../../services/api';
 
 import './styles.css';
 
 
-
 function SignUp() {
+
+  const history = useHistory();
+
+
+  const [name, setName] = useState('');
+  const [sobrenome, setSobrenome] = useState('');
+  const [nascimento, setNascimento] = useState('');
+  const [cpf, setCPF] = useState('');
+  const [codigo, setCodigo] = useState('');
+  const [papel, setPapel] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleCreateForm(e) {
+    e.preventDefault()
+
+    api.post('classes', {
+      name,
+      sobrenome,
+      nascimento,
+      cpf: Number(cpf),
+      codigo,
+      papel,
+      email,
+      password
+    }).then(() => {
+      alert('Cadastro realizado com sucesso!');
+
+      history.push('/');
+    }).catch(() => {
+      alert('Erro no cadastro!');
+
+      history.push('/');
+
+    })
+
+    console.log({
+      name,
+      sobrenome,
+      nascimento,
+      cpf,
+      codigo,
+      papel,
+      email,
+      password
+    });
+  }
+
+
+
   return (
     <div id="page-cadastro" className="container">
-      {/* <PageHeader/> */}
       <header className="page-header">
         <div className="top-bar-container">
           <Link to="/">
@@ -27,57 +76,116 @@ function SignUp() {
       </header>
 
       <main>
-        <fieldset>
-          <div className="input-block">
-            <label htmlFor="id">Papel</label>
-            <br></br>
-              <select>
+        <form onSubmit={handleCreateForm}>
+          <fieldset>
+            <div className="input-block">
+              <label htmlFor="id">Papel</label>
+              <br></br>
+              <select
+                value={papel}
+                onChange={(e) => { setPapel(e.target.value) }}>
                 <optgroup>
+                  <option value="" disabled hidden>Selecione uma opção</option>
                   <option value="1">Paciente</option>
                   <option value="2">Profissional</option>
+
                 </optgroup>
               </select>
-          </div>
-          <div className="input-block">
-            <label htmlFor="id">CPF/Código do Conselho</label>
-            <input type="text" id="text" />
-          </div>
+              {/* <button onClick={() => setShow(!show)}>{show ? "hide": "show"}</button> */}
+            </div>
 
-          <div className="input-block">
-            <label htmlFor="name">Nome Completo*</label>
-            <input type="text" id="text" />
-          </div>
+              <div className="input-block">
+                <label htmlFor="id">CPF*</label>
+                <input
+                  type="text"
+                  id="cpf"
+                  maxLength='11'
+                  value={cpf}
+                  onChange={(e) => { setCPF(e.target.value) }}
+                />
+              </div>
+        
+            <div className="input-block">
+              <label htmlFor="id">Código do Conselho</label>
+              <input
+                type="text"
+                id="codigo"
+                value={codigo}
+                onChange={(e) => { setCodigo(e.target.value) }}
+              />
+            </div>
 
-          <div className="input-block">
-            <label htmlFor="date">Data de Nascimento*</label>
-            <input type="date" id="date" />
-          </div>
+            <div
+              className="input-block">
+              <label htmlFor="name">Nome*</label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => { setName(e.target.value) }}
+              />
+            </div>
 
-          <div className="input-block">
-            <label htmlFor="email">Email*</label>
-            <input type="email" id="email" />
-          </div>
+            <div className="input-block">
+              <label htmlFor="name">Sobrenome*</label>
+              <input
+                type="text"
+                id="surname"
+                value={sobrenome}
+                onChange={(e) => { setSobrenome(e.target.value) }} />
+            </div>
 
-          <div className="input-block">
-            <label htmlFor="password">Senha*</label>
-            <input type="password" id="password" />
-          </div>
+            <div className="input-block">
+              <label htmlFor="date">Data de Nascimento*</label>
+              <input
+                type="date"
+                id="date"
+                value={nascimento}
+                onChange={(e) => { setNascimento(e.target.value) }}
+              />
+            </div>
 
-          <div className="input-block">
-            <label htmlFor="password">Confirmar senha*</label>
-            <input type="password" id="password" />
-          </div>
-        </fieldset>
-        <div className="buttons-container">
-          <Link to="/" className="botao">
-            Cadastrar
-                </Link>
-        </div>
+            <div className="input-block">
+              <label htmlFor="email">Email*</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => { setEmail(e.target.value) }} />
+            </div>
 
-        <span className="total-connections">
-          Produzido por: E-brains Team
+            <div className="input-block">
+              <label htmlFor="password">Senha*</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => { setPassword(e.target.value) }} />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="password">Confirmar senha*</label>
+              <input type="password" id="confirm-password" />
+            </div>
+          </fieldset>
+
+          <footer>
+
+            <button type="submit">
+              Cadastrar
+        </button>
+
+          </footer>
+
+
+          <span className="total-connections">
+            Produzido por: E-brains Team
                 </span>
+
+        </form>
+
       </main>
+
 
     </div>
   )
