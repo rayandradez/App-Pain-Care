@@ -1,13 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState} from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import '../../assets/styles/global.css';
 import logoImg from '../../assets/images/logoApp.svg';
 import LandingImg from '../../assets/images/landingApp.svg';
 
+import api from '../../services/api';
+
 import './styles.css';
 
+
 function App() {
+
+    const history = useHistory();
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleCreateForm(e) {
+        e.preventDefault()
+
+    api.post('api/patient/authentication', {
+        email,
+        password
+    }).then(() => {
+        alert('Login ok');
+
+        history.push('/appmenu');
+    }).catch(() => {
+        alert('Erro! Usuário não cadastrado');
+    })
+
+    console.log({
+        email,
+        password,
+    });
+
+
+    }
     return (
         <div id="page-app">
             <div id="page-app-content" className="container">
@@ -22,32 +52,47 @@ function App() {
                 />
 
                 <main>
-                    <fieldset>
-                        <div className="input-block">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" />
-                        </div>
+                    <form  onSubmit={handleCreateForm}>
+                        <fieldset>
+                            <div className="input-block">
+                                <label htmlFor="email">Email</label>
+                                <input 
+                                type="email" 
+                                id="email" 
+                                value={email}
+                                onChange={(e) => { setEmail(e.target.value) }} />
+                            </div>
 
-                        <div className="input-block">
-                            <label htmlFor="senha">Senha</label>
-                            <input type="password" id="senha" />
-                        </div>
-                    </fieldset>
+                            <div className="input-block">
+                                <label htmlFor="senha">Senha</label>
+                                <input 
+                                type="password" 
+                                id="password"
+                                value={password}
+                                onChange={(e) => { setPassword(e.target.value) }} />
+                            </div>
+                        </fieldset>
+                        <button type="submit">
+                        Entrar
+                        </button>
+                    </form>
                 </main>
                 <div className="buttons-container">
-                    <Link to="/appmenu" className="botao">
+                    
+                    {/* <Link to="/appmenu" className="botao">
                         Entrar
-                </Link>
+                </Link> */}
                 </div>
                 <div className="cadastro">
                     <Link to="/cadastro">
                         Ainda não tem conta? Cadastre-se
                 </Link>
-                </div>
+                </div>               
 
                 <span className="total-connections">
                     Produzido por: E-brains Team
                 </span>
+
             </div>
 
         </div>
