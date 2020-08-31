@@ -55,7 +55,7 @@ function SignUp() {
       codigo,
       papel,
       email,
-      password
+      
     });
   }
 

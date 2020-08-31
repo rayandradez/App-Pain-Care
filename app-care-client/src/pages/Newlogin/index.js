@@ -72,17 +72,19 @@ function App() {
                                 onChange={(e) => { setPassword(e.target.value) }} />
                             </div>
                         </fieldset>
+                        <div className="buttons-container"> 
                         <button type="submit">
                         Entrar
                         </button>
+                        </div>
+
                     </form>
                 </main>
-                <div className="buttons-container">
+              
                     
                     {/* <Link to="/appmenu" className="botao">
                         Entrar
                 </Link> */}
-                </div>
                 <div className="cadastro">
                     <Link to="/cadastro">
                         Ainda não tem conta? Cadastre-se
