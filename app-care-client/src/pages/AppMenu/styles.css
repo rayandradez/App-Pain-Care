@@ -91,12 +91,12 @@
     }
 
 
- .page-header .top-bar-container a {
+ #page-menu-list .page-header .top-bar-container a {
     height: 3.2rem;
     transition: opacity 0.2s;
 }
 
-.page-header .top-bar-container a:hover {
+#page-menu-list .page-header .top-bar-container a:hover {
    opacity: 0.6;
 }
 
@@ -104,7 +104,7 @@
     height: 3rem;
 }
 
-.page-header .header-content {
+#page-menu-list .page-header .header-content {
     /* width: 90%; */
     margin:0 auto;
     position: relative;
@@ -113,7 +113,7 @@
 
 }
 
- .page-header .header-content strong {
+#page-menu-list .page-header .header-content strong {
     font: 700 2.6rem Archivo;
     line-height: 4.2rem;
     align-items: center;

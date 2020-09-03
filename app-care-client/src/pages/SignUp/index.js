@@ -14,7 +14,6 @@ function SignUp() {
 
   const history = useHistory();
 
-
   const [firstName, setfirstName] = useState('');
   const [lastName, setlastName] = useState('');
   const [nascimento, setNascimento] = useState('');

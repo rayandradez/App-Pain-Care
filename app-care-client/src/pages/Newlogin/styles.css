@@ -233,7 +233,7 @@ overflow: hidder;
 
         ;
     }
-    .logo-container {
+    #page-app-content .logo-container {
         grid-area: logo;
         align-self: center;
         text-align: center;
@@ -242,12 +242,12 @@ overflow: hidder;
 
     }
 
-    .logo-container h2 {
+    #page-app-content .logo-container h2 {
         text-align: center;
         font-size: 2.5rem;
     }
 
-    .logo-container img {
+    #page-app-content .logo-container img {
         height: 100%;
         align-items: flex-start;
     }
@@ -269,7 +269,7 @@ overflow: hidder;
         padding: 9px;
     }
 
-    .buttons-container a{
+    #page-app-content .buttons-container a{
         font-size: 2.4rem;
     }
 

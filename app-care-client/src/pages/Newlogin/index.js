@@ -72,6 +72,7 @@ function App() {
                                 onChange={(e) => { setPassword(e.target.value) }} />
                             </div>
                         </fieldset>
+                        
                         <div className="buttons-container"> 
                         <button type="submit">
                         Entrar
