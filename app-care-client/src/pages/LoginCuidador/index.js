@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import '../../assets/styles/global.css';
@@ -10,7 +10,7 @@ import api from '../../services/api';
 import './styles.css';
 
 
-function App() {
+function LoginCuidadores() {
 
     const history = useHistory();
 
@@ -20,21 +20,21 @@ function App() {
     function handleCreateForm(e) {
         e.preventDefault()
 
-    api.post('api/patient/authentication', {
-        email,
-        password
-    }).then(() => {
-        alert('Login ok');
+        api.post('api/patient/authentication', {
+            email,
+            password
+        }).then(() => {
+            alert('Login ok');
 
-        history.push('/appmenu');
-    }).catch(() => {
-        alert('Erro! Usuário não cadastrado');
-    })
+            history.push('/appmenu');
+        }).catch(() => {
+            alert('Erro! Usuário não cadastrado');
+        })
 
-    console.log({
-        email,
-        password,
-    });
+        console.log({
+            email,
+            password,
+        });
 
 
     }
@@ -43,7 +43,7 @@ function App() {
             <div id="page-app-content" className="container">
                 <div className="logo-container">
                     <img src={logoImg} alt="Teste" />
-                    <h2>Para Pacientes</h2>
+                    <h2>Para Profissionais</h2>
                 </div>
 
                 <img src={LandingImg}
@@ -52,51 +52,52 @@ function App() {
                 />
 
                 <main>
-                    <form  onSubmit={handleCreateForm}>
+                    <form onSubmit={handleCreateForm}>
                         <fieldset>
                             <div className="input-block">
                                 <label htmlFor="email">Email</label>
-                                <input 
-                                type="email" 
-                                id="email" 
-                                value={email}
-                                onChange={(e) => { setEmail(e.target.value) }} />
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => { setEmail(e.target.value) }} />
                             </div>
 
                             <div className="input-block">
                                 <label htmlFor="senha">Senha</label>
-                                <input 
-                                type="password" 
-                                id="password"
-                                value={password}
-                                onChange={(e) => { setPassword(e.target.value) }} />
+                                <input
+                                    type="password"
+                                    id="password"
+                                    value={password}
+                                    onChange={(e) => { setPassword(e.target.value) }} />
                             </div>
                         </fieldset>
-                        
-                        <div className="buttons-container"> 
-                        <button type="submit">
-                        Entrar
+
+                        <div className="buttons-container">
+                            <button type="submit">
+                                Entrar
                         </button>
                         </div>
-                       </form>
-                       <div className="buttons-container-change"> 
+                    </form>
+
+                    <div className="buttons-container-change">
                         <button >
-                        <Link to="/LoginCuidador">
-                        Profissional
+                            <Link to="/">
+                                Pacientes
                         </Link>
                         </button>
-                        </div>
+                    </div>
                 </main>
-              
-                    
-                    {/* <Link to="/appmenu" className="botao">
+
+
+                {/* <Link to="/appmenu" className="botao">
                         Entrar
                 </Link> */}
                 <div className="cadastro">
                     <Link to="/cadastro">
                         Ainda não tem conta? Cadastre-se
                 </Link>
-                </div>               
+                </div>
 
                 <span className="total-connections">
                     Produzido por: E-brains Team
@@ -110,4 +111,4 @@ function App() {
     ;
 }
 
-export default App;
+export default LoginCuidadores;

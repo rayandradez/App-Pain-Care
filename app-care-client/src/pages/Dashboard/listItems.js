@@ -15,7 +15,7 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="Pacientes" />
     </ListItem>
 {/*     
     <ListItem button>

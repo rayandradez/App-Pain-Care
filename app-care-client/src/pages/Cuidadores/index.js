@@ -80,7 +80,7 @@ export default function Cuidadores() {
           <DialogTitle className={classes.titulo} id="form-dialog-title"><b>Inserir Código</b></DialogTitle>
           <DialogContent >
             <DialogContentText className={classes.texto}>
-              <strong>Adicionar código para vincular sua conta com a do profissional de saúde.</strong> <br /> OBS.: Para conseguir o código, entre em contato com o seu médico.
+              <strong>Adicionar email do profissional para vincular sua conta.</strong> <br /> OBS.: Para conseguir o email, entre em contato com o seu médico.
               </DialogContentText>
             <TextField
               autoFocus

@@ -9,6 +9,8 @@ import Avaliacao from './pages/Avaliacao';
 import Cuidadores from './pages/Cuidadores';
 import SignUp from './pages/SignUp';
 import Metas from './pages/Metas';
+import LoginCuidador from './pages/LoginCuidador';
+
 
 export default function Routes() {
   return (
@@ -20,6 +22,8 @@ export default function Routes() {
         <Route path="/Cuidadores" component={Cuidadores} />
         <Route path="/Cadastro" component = {SignUp} />
         <Route path="/metas" component = {Metas}/>
+        <Route path="/LoginCuidador" component = {LoginCuidador}/>
+
     </BrowserRouter>
   );
 }
